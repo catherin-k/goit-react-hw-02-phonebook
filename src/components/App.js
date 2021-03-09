@@ -3,9 +3,10 @@ import shortid from "shortid";
 
 import "./App.css";
 
-import ContactForm from "./contactForm/ContactForm";
-import ContactList from "./contactList/contactList";
-import Filter from "./filter/Filter";
+import ContactForm from "./contactForm";
+import ContactList from "./contactList";
+import Filter from "./filter";
+
 class App extends Component {
   state = {
     contacts: [
@@ -40,7 +41,7 @@ class App extends Component {
     }
 
     console.log(nameArr);
-    console.log(name.toLowerCase());
+    console.log(name);
   };
 
   deleteContact = (contactId) => {
@@ -63,18 +64,12 @@ class App extends Component {
     );
   };
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // this.props.onSubmit(this.state.name);
-  //   console.log(this.state.name);
-  // };
-
   render() {
     return (
       <div className="App">
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
-        <h2>contacts</h2>
+        <h2 className="title">contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
         <ContactList
           contacts={this.getVisibleContacts()}
