@@ -4,11 +4,10 @@ import shortid from "shortid";
 import "./App.css";
 
 import ContactForm from "./contactForm/ContactForm";
-
+import ContactList from "./contactList/contactList";
 class App extends Component {
   state = {
     contacts: [],
-    name: "",
   };
 
   addContact = (name, number) => {
@@ -34,6 +33,7 @@ class App extends Component {
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>contacts</h2>
+        <ContactList contacts={this.state.contacts} />
       </div>
     );
   }
